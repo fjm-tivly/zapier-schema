@@ -8,10 +8,6 @@
       },
       "description": "Array of all phone numbers found in email"
     },
-    "campaign_match": {
-      "type": "string",
-      "description": "Campaign code if matched (emailU1, emailT1, etc.) or 'no_match'"
-    },
     "classification": {
       "type": "string",
       "enum": [
@@ -46,26 +42,15 @@
     "draft_response": {
       "type": "string",
       "description": "Julie-style response if callback_request or marketing_nurture, otherwise empty"
-    },
-    "callback_url_param": {
-      "type": "string",
-      "description": "?sr= parameter if campaign matched, otherwise empty"
-    },
-    "recommended_phone": {
-      "type": "string",
-      "description": "Campaign phone if matched, otherwise 877-907-5267"
     }
   },
   "required": [
     "phone_numbers_found",
-    "campaign_match", 
     "classification",
     "sentiment",
     "confidence",
     "summary",
-    "draft_response",
-    "callback_url_param",
-    "recommended_phone"
+    "draft_response"
   ],
   "additionalProperties": false
 }
