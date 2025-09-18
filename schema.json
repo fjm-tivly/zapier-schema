@@ -1,0 +1,71 @@
+{
+  "type": "object",
+  "properties": {
+    "phone_numbers_found": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Array of all phone numbers found in email"
+    },
+    "campaign_match": {
+      "type": "string",
+      "description": "Campaign code if matched (emailU1, emailT1, etc.) or 'no_match'"
+    },
+    "classification": {
+      "type": "string",
+      "enum": [
+        "unsubscribe",
+        "callback_request", 
+        "marketing_nurture",
+        "customer_service",
+        "tivly_insurance",
+        "unknown"
+      ],
+      "description": "Email classification category"
+    },
+    "sentiment": {
+      "type": "string",
+      "enum": [
+        "positive",
+        "neutral", 
+        "negative"
+      ],
+      "description": "Overall sentiment of the email"
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Confidence score between 0 and 1"
+    },
+    "summary": {
+      "type": "string",
+      "description": "Brief 1-2 sentence summary of email content and intent"
+    },
+    "draft_response": {
+      "type": "string",
+      "description": "Julie-style response if callback_request or marketing_nurture, otherwise empty"
+    },
+    "callback_url_param": {
+      "type": "string",
+      "description": "?sr= parameter if campaign matched, otherwise empty"
+    },
+    "recommended_phone": {
+      "type": "string",
+      "description": "Campaign phone if matched, otherwise 877-907-5267"
+    }
+  },
+  "required": [
+    "phone_numbers_found",
+    "campaign_match", 
+    "classification",
+    "sentiment",
+    "confidence",
+    "summary",
+    "draft_response",
+    "callback_url_param",
+    "recommended_phone"
+  ],
+  "additionalProperties": false
+}
